@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Chess Clone</title>
+
+  <!-- chess.js (pravila šaha) -->
+  <script src="https://cdn.jsdelivr.net/npm/chess.js@1.0.0/chess.min.js"></script>
 </head>
+
 <body>
-  <h1>Radi 🎉</h1>
-  <p>Ako vidiš ovo, GitHub Pages radi.</p>
+  <h1>Chess Clone</h1>
+
+  <button onclick="testMove()">Test potez</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    // napravimo novu šah partiju
+    const game = new Chess();
+
+    function testMove() {
+      // probamo potez e2 -> e4
+      const move = game.move({ from: 'e2', to: 'e4' });
+
+      document.getElementById("output").textContent =
+        JSON.stringify(move, null, 2);
+    }
+  </script>
 </body>
 </html>
